@@ -1,4 +1,4 @@
-# Start.GG State-Wide Offline Tournament Listing Tool
+# Start.GG Discord Bot for State-Wide Offline Tournaments
 
 This project combines GitHub Actions, the Start.GG GraphQL API, and Discord Webhooks to create a listing tool for all upcoming offline events of a given game in a given region.
 

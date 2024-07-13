@@ -129,7 +129,7 @@ def main():
         }
         requests.post(WEBHOOK_URL, json=payload)
     tournaments_this_week = []
-    if datetime.date.today().weekday() == 4:  # today is Sunday?
+    if datetime.date.today().weekday() == 6:  # today is Sunday?
         tournaments_this_week = tournaments_filter(response, tomorrow, next_week, False)
         for tournament in tournaments_this_week:
             if tournaments_tomorrow.count(tournament) > 0:

@@ -54,7 +54,6 @@ Here's the Discord Webhook documentation: https://support.discord.com/hc/en-us/a
 
 Heres the Start.GG Authentication documentation: https://developer.start.gg/docs/authentication
 
-- Create a token and copy it
 - Go create a token and copy it, then back to the `Actions secrets and variables` page.
 - Under `Repository secrets`, click `New repository secret`.
 - Set `Name` to `STARTGG_TOKEN`, and set `Secret` to the token you copied.

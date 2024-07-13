@@ -111,7 +111,7 @@ def main():
     """Start the script."""
 
     tz = pytz.timezone(TIMEZONE)
-    this_morning = datetime.datetime.combine(datetime.datetime.now(tz).date(), datetime.time(0, 0), tzinfo=tz)
+    this_morning = datetime.datetime.combine(datetime.datetime.now(tz).date(), datetime.time(0, 0, tzinfo=tz), tzinfo=tz)
     tomorrow = this_morning + datetime.timedelta(days=1)
     overmorrow = this_morning + datetime.timedelta(days=2)
     next_week = this_morning + datetime.timedelta(days=8)
@@ -129,7 +129,7 @@ def main():
         }
         requests.post(WEBHOOK_URL, json=payload)
     tournaments_this_week = []
-    if datetime.date.today().weekday() == 6:  # today is Sunday?
+    if this_morning.weekday() == 6:  # today is Sunday?
         tournaments_this_week = tournaments_filter(response, tomorrow, next_week, False)
         for tournament in tournaments_this_week:
             if tournaments_tomorrow.count(tournament) > 0:

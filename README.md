@@ -28,7 +28,7 @@ From the main repository page (where you probably are now):
 - In the editor, edit the attributes for `STATE`, `TIMEZONE`, and `GAME_ID` under `jobs:` `build:` `steps:` `- name: Running Script` `env:`.
   - `STATE`: 2-letter state code representing your state in the USA. If you want to expand this or use other regions, you're going to have to edit the code in `app.py` and figure it out yourself because I can't be bothered.
   - `TIMEZONE`: timezone code. my reccommendation is that you leave this on EST even if you're not EST because I haven't tested anything different, and designed the app assuming it would be running on EST, but other timezone codes should work. Reference the `pytz` python package for a list of valid timezones.
-  - `GAME_ID`: Start.GG backend ID for game title. `1386` is the current value for Super Smash Bros. Ultimate. If you want to change this to another game here's the documentation good luck: https://developer.start.gg/docs/examples/queries/videogame-id-by-name
+  - `GAME_ID`: Start.GG backend ID for game title. `1386` is the current value for Super Smash Bros. Ultimate. `1` is the current value for Super Smash Bros. Melee. If you want to change this to another game here's the documentation good luck: https://developer.start.gg/docs/examples/queries/videogame-id-by-name
 
 ## Add repository secrets
 

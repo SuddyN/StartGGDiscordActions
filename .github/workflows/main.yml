@@ -39,4 +39,4 @@ jobs:
           STARTGG_TOKEN: ${{ secrets.STARTGG_TOKEN }}
         run: |
           pip install -r requirements.txt
-          python script_remote.py
+          python app.py

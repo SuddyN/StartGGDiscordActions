@@ -28,7 +28,38 @@ From the main repository page (where you probably are now):
 - In the editor, edit the attributes for `STATE`, `TIMEZONE`, and `GAME_ID` under `jobs:` `build:` `steps:` `- name: Running Script` `env:`.
   - `STATE`: 2-letter state code representing your state in the USA. If you want to expand this or use other regions, you're going to have to edit the code in `app.py` and figure it out yourself because I can't be bothered.
   - `TIMEZONE`: timezone code. my reccommendation is that you leave this on EST even if you're not EST because I haven't tested anything different, and designed the app assuming it would be running on EST, but other timezone codes should work. Reference the `pytz` python package for a list of valid timezones.
-  - `GAME_ID`: Start.GG backend ID for game title. `1386` is the current value for Super Smash Bros. Ultimate. `1` is the current value for Super Smash Bros. Melee. If you want to change this to another game here's the documentation good luck: https://developer.start.gg/docs/examples/queries/videogame-id-by-name
+  - `GAME_ID`: Start.GG backend ID for game title.
+    - Rivals 2 - `53945`
+    - Rivals of Aether - `24`
+    - Super Smash Bros. Ultimate - `1386`
+    - Super Smash Bros. Melee - `1`
+    - HewDraw Remix - `34157`
+    - Project+ - `33602`
+    - Project M - `2`
+    - Super Smash Bros. for Wii U - `3`
+    - Super Smash Bros. Brawl - `5`
+    - Super Smash Bros. (64) - `4`
+    - MultiVersus - `40849`
+    - Brawlhalla - `15`
+    - Street Fighter 6 - `43868`
+    - Street Fighter V - `10055`
+    - Ultra Street Fighter IV - `16`
+    - Street Fighter III: 3rd Strike - `610`
+    - TEKKEN 8 - `49783`
+    - TEKKEN 7 - `17`
+    - Guilty Gear: Strive - `33945`
+    - Guilty Gear Xrd REV2 - `36`
+    - Guilty Gear XX Accent Core Plus R - `22406`
+    - The King of Fighters XV - `36963`
+    - DRAGON BALL FighterZ - `287`
+    - Under Night In-Birth II Sys:Celes - `50203`
+    - Granblue Fantasy Versus: Rising - `48548`
+    - Mortal Kombat 1 - `48599`
+    - Marvel vs. Capcom: Infinite - `288`
+    - Ultimate Marvel vs Capcom 3 - `18`
+    - Marvel Vs. Capcom 2 - `3742`
+    - Skullgirls: 2nd Encore - `32`
+    - If you want to change this to another game here's the documentation good luck: https://developer.start.gg/docs/examples/queries/videogame-id-by-name
 
 ## Add repository secrets
 

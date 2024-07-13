@@ -12,6 +12,12 @@ Running this is not like most Discord apps, since it relies on GitHub actions as
 
 ## Fork this repository
 
+From the main repository page (where you probably are now):
+
+- Click `Fork`
+- Uncheck `Copy the main branch only`
+- Create the fork
+
 ## Set up GitHub Actions
 
 - From the new repository page on GitHub, click the `Actions` tab.

@@ -6,7 +6,7 @@ import pysmashgg
 from pysmashgg.api import run_query
 
 STATE = os.environ["STATE"]
-TIMEZONE = os.environ["EST"]
+TIMEZONE = os.environ["TIMEZONE"]
 GAME_ID = os.environ["GAME_ID"]
 SHOW_ONLINE_EVENTS = False
 WEBHOOK_URL = os.environ["WEBHOOK_URL"]

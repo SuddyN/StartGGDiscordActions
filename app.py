@@ -107,7 +107,7 @@ def make_embeds(tournament):
     ]
 
 
-def main():
+async def main():
     """Start the script."""
 
     tz = pytz.timezone(TIMEZONE)
@@ -127,7 +127,7 @@ def main():
             "avatar_url": "https://miro.medium.com/v2/resize:fit:1400/1*YAC3gljr8cMB4ZPyf3CMLA.png",
             "embeds": make_embeds(tournament),
         }
-        requests.post(WEBHOOK_URL, json=payload)
+        await requests.post(WEBHOOK_URL, json=payload)
     tournaments_this_week = []
     if this_morning.weekday() == 5:
         tournaments_this_week = tournaments_filter(response, tomorrow, next_week, False)
@@ -139,7 +139,7 @@ def main():
                 "avatar_url": "https://miro.medium.com/v2/resize:fit:1400/1*YAC3gljr8cMB4ZPyf3CMLA.png",
                 "embeds": make_embeds(tournament),
             }
-            requests.post(WEBHOOK_URL, json=payload)
+            await requests.post(WEBHOOK_URL, json=payload)
     for tournament in tournaments_created_recently:
         if tournaments_tomorrow.count(tournament) > 0:
             continue
@@ -150,7 +150,7 @@ def main():
             "avatar_url": "https://miro.medium.com/v2/resize:fit:1400/1*YAC3gljr8cMB4ZPyf3CMLA.png",
             "embeds": make_embeds(tournament),
         }
-        requests.post(WEBHOOK_URL, json=payload)
+        await requests.post(WEBHOOK_URL, json=payload)
 
 
 if __name__ == "__main__":

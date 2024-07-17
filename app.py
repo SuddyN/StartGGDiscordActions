@@ -1,3 +1,4 @@
+import asyncio
 import os
 import datetime
 import pytz
@@ -154,4 +155,4 @@ async def main():
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

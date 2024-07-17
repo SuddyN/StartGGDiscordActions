@@ -5,7 +5,7 @@ name: Discord Webhook
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 1 * * *"
+    - cron: "0 0 * * *"
 
 # 'jobs' are the routines, we only have
 # one when the instance is built.

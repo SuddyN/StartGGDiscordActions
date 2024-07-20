@@ -1,6 +1,6 @@
-import asyncio
 import os
 import datetime
+import time
 import pytz
 import requests
 import pysmashgg
@@ -108,7 +108,7 @@ def make_embeds(tournament):
     ]
 
 
-async def main():
+def main():
     """Start the script."""
 
     tz = pytz.timezone(TIMEZONE)
@@ -121,7 +121,7 @@ async def main():
     variables = {"state": STATE, "page": 1, "videogameId": GAME_ID}
     response = run_query(CUSTOM_QUERY, variables, smash.header, smash.auto_retry)
     tournaments_tomorrow = tournaments_filter(response, tomorrow, overmorrow, False)
-    tournaments_created_recently = tournaments_filter(response, this_morning, tomorrow, True)
+    # tournaments_created_recently = tournaments_filter(response, this_morning, tomorrow, True)
     for tournament in tournaments_tomorrow:
         payload = {
             "username": "Events Tomorrow",
@@ -129,7 +129,7 @@ async def main():
             "embeds": make_embeds(tournament),
         }
         requests.post(WEBHOOK_URL, json=payload)
-    await asyncio.sleep(1)
+    time.sleep(1)
     tournaments_this_week = []
     if this_morning.weekday() == 5:
         tournaments_this_week = tournaments_filter(response, tomorrow, next_week, False)
@@ -142,19 +142,19 @@ async def main():
                 "embeds": make_embeds(tournament),
             }
             requests.post(WEBHOOK_URL, json=payload)
-    await asyncio.sleep(1)
-    for tournament in tournaments_created_recently:
-        if tournaments_tomorrow.count(tournament) > 0:
-            continue
-        if tournaments_this_week.count(tournament) > 0:
-            continue
-        payload = {
-            "username": "Events Created Today",
-            "avatar_url": "https://miro.medium.com/v2/resize:fit:1400/1*YAC3gljr8cMB4ZPyf3CMLA.png",
-            "embeds": make_embeds(tournament),
-        }
-        requests.post(WEBHOOK_URL, json=payload)
+    # time.sleep(1)
+    # for tournament in tournaments_created_recently:
+    #     if tournaments_tomorrow.count(tournament) > 0:
+    #         continue
+    #     if tournaments_this_week.count(tournament) > 0:
+    #         continue
+    #     payload = {
+    #         "username": "Events Created Today",
+    #         "avatar_url": "https://miro.medium.com/v2/resize:fit:1400/1*YAC3gljr8cMB4ZPyf3CMLA.png",
+    #         "embeds": make_embeds(tournament),
+    #     }
+    #     requests.post(WEBHOOK_URL, json=payload)
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

@@ -121,7 +121,7 @@ def main():
     variables = {"state": STATE, "page": 1, "videogameId": GAME_ID}
     response = run_query(CUSTOM_QUERY, variables, smash.header, smash.auto_retry)
     tournaments_tomorrow = tournaments_filter(response, tomorrow, overmorrow, False)
-    # tournaments_created_recently = tournaments_filter(response, this_morning, tomorrow, True)
+    tournaments_created_recently = tournaments_filter(response, this_morning, tomorrow, True)
     for tournament in tournaments_tomorrow:
         payload = {
             "username": "Events Tomorrow",
@@ -142,18 +142,18 @@ def main():
                 "embeds": make_embeds(tournament),
             }
             requests.post(WEBHOOK_URL, json=payload)
-    # time.sleep(1)
-    # for tournament in tournaments_created_recently:
-    #     if tournaments_tomorrow.count(tournament) > 0:
-    #         continue
-    #     if tournaments_this_week.count(tournament) > 0:
-    #         continue
-    #     payload = {
-    #         "username": "Events Created Today",
-    #         "avatar_url": "https://miro.medium.com/v2/resize:fit:1400/1*YAC3gljr8cMB4ZPyf3CMLA.png",
-    #         "embeds": make_embeds(tournament),
-    #     }
-    #     requests.post(WEBHOOK_URL, json=payload)
+    time.sleep(1)
+    for tournament in tournaments_created_recently:
+        if tournaments_tomorrow.count(tournament) > 0:
+            continue
+        if tournaments_this_week.count(tournament) > 0:
+            continue
+        payload = {
+            "username": "Events Created Today",
+            "avatar_url": "https://miro.medium.com/v2/resize:fit:1400/1*YAC3gljr8cMB4ZPyf3CMLA.png",
+            "embeds": make_embeds(tournament),
+        }
+        requests.post(WEBHOOK_URL, json=payload)
 
 
 if __name__ == "__main__":
